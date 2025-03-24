@@ -1,10 +1,12 @@
 package Practice;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CheckLogoPresentOrNot {
+public class ImageSize {
 
 	public static void main(String[] args) 
 	{
@@ -12,10 +14,8 @@ public class CheckLogoPresentOrNot {
 		driver.manage().window().maximize();
 		
 		driver.get("https://www.amazon.in/");
-		
-		WebElement logo = driver.findElement(By.id("nav-belt"));
-		boolean status = logo.isDisplayed();
-		System.out.println ("Display status is:" +status);
+		List<WebElement> images = driver.findElements(By.tagName("img")); // using tag name
+		System.out.println(images.size());
 		
 		driver.close();
 	}
